@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+       <img src="https://www.w3schools.com/w3images/avatar2.png">
+  </div>
+ <form (ngSubmit)="onSubmit(signupForm.value)" [formGroup]="signupForm">
+  <div class="row">
+       <input type="text" class="form-control" placeholder="Name"  formControlName="name" id="InputName">
+  </div>
+
+  <div class="row">
+       <input type="email" class="form-control" placeholder="email" formControlName="email" id="InputEmail">
+  </div>
+  <div class="row">
+      <input type="password" class="form-control" placeholder="password" formControlName="password" id="InputPassword">
+  </div>
+  <div class="row">
+      <button class="form-control btn-primary">Sign Up</button>
+  </div>
+ </form>
+</div>

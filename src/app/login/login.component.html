@@ -3,13 +3,13 @@
        <img src="https://www.w3schools.com/w3images/avatar2.png">
   </div>
   <div class="row">
-       <input type="email" class="form-control" placeholder="email">
+       <input type="email" class="form-control" placeholder="email" #email>
   </div>
   <div class="row">
-      <input type="password" class="form-control" placeholder="password">
+      <input type="password" class="form-control" placeholder="password" #password>
   </div>
   <div class="row">
-      <button class="form-control btn-primary">Login</button>
+      <button class="form-control btn-primary" (click)=login(email.value,password.value)>Login</button>
   </div>
 
 </div>

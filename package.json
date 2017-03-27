@@ -22,7 +22,8 @@
     "@angular/router": "^3.4.0",
     "@types/socket.io-client": "^1.4.29",
     "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
+    "ng2-validation": "^3.8.0",
+    "rxjs": "^5.2.0",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {

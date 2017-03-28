@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
       this.user.email = email;
       this.user.password = password;
        this.userService.login(this.user).subscribe((data) => {
+         console.log(data.data.email);
+         localStorage.setItem('useremail', data.data.email);
          this.router.navigateByUrl('/messanger');
        });
    }

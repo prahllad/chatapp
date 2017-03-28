@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-   api_url: 'http://f28a2ff8.ngrok.io/api' //insert our api endpoint here
+   api_url: 'https://6c1e493b.ngrok.io/api' //insert our api endpoint here
 };

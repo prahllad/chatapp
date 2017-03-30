@@ -31,14 +31,14 @@
                </ul>
             </div>
             <div class="member_list">
-               <ul class="list-unstyled">
-                  <li class="left clearfix" *ngFor="let a of obj" >
+               <ul class="list-unstyled" id="">
+                  <li class="left clearfix" *ngFor="let a of obj; let i=index" [id]="'container'+i" (click)="getter($event,i)" style=" ">
                      <span class="chat-img pull-left">
                      <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Avatar" class="img-circle">
                      </span>
                      <div class="chat-body clearfix">
                         <div class="header_sec">
-                           <strong class="primary-font">{{a.name}}</strong> <strong class="pull-right">
+                           <strong [id]="'data'+i" class="primary-font data">{{a.name}}</strong> <strong class="pull-right">
                            09:45AM</strong>
                         </div>
                         <div class="contact_sec">
@@ -55,7 +55,7 @@
          <div class="col-sm-9 message_section">
 		 <div class="row">
 		 <div class="new_message_head">
-		 <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i> New Message</button></div><div class="pull-right"><div class="dropdown">
+		 <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i> {{reciver_name}}</button></div><div class="pull-right"><div class="dropdown">
   <button class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fa fa-cogs" aria-hidden="true"></i>  Setting
     <span class="caret"></span>
@@ -70,6 +70,7 @@
 
 		 <div class="chat_area">
 		 <ul class="list-unstyled" id="chatlog">
+       <div class="well" *ngFor="let obj of chatlog">{{obj.message}}</div>
      <!--   <li class="left clearfix">
                      <span class="chat-img1 pull-left">
                      <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Avatar" class="img-circle">

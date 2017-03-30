@@ -3,12 +3,14 @@ import {JwtService} from './jwt.service';
 import {ApiService} from './api.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../model/user/user.component';
+import {URLSearchParams} from '@angular/http';
 @Injectable()
 export class UserService {
  private signoutEdnpoint = '/signout';
     private loginEndPoint = '/login';
     private registerEndpoint = '/register';
     private userlist = '/fetchuser';
+    private chatlist = '/fetchchat';
 private userEndpoint = '/';
 private currentUserSubject = new BehaviorSubject<User>(new User());
     private isAuthenticatedSubject = new BehaviorSubject<boolean>(!!this.jwtService.getToken());
@@ -54,9 +56,16 @@ private currentUserSubject = new BehaviorSubject<User>(new User());
             });
     }
     public fetchuser() {
-      return this.apiService.get(this.userlist)
+      return this.apiService.get(this.userlist, new URLSearchParams('email=' + localStorage.getItem('useremail')))
       .map(res => {
          return res;
+      });
+    }
+
+    public fetch_chat(data) {
+      return this.apiService.post(this.chatlist, data)
+      .map(res => {
+        return res;
       });
     }
 

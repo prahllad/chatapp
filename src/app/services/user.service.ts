@@ -11,6 +11,7 @@ export class UserService {
     private registerEndpoint = '/register';
     private userlist = '/fetchuser';
     private chatlist = '/fetchchat';
+    private googlelink = '/auth/login';
 private userEndpoint = '/';
 private currentUserSubject = new BehaviorSubject<User>(new User());
     private isAuthenticatedSubject = new BehaviorSubject<boolean>(!!this.jwtService.getToken());
@@ -82,6 +83,15 @@ private currentUserSubject = new BehaviorSubject<User>(new User());
             .map(data => {
                 return data.data;
             }, err => console.log('Error'));
+    }
+    public authlogin(){
+        return this.apiService.get(this.googlelink).map(data=>{return data},err=>console.log(err));
+    }
+    public authorization(code){
+        return this.apiService.post('/auth/userData',code).map(data=>{
+            return data;
+        },err=>console.log(err));
+
     }
 
     /**public purgeAuth() {
